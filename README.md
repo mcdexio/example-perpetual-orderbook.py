@@ -1,11 +1,11 @@
 # Example Code for MCDEX2 Perpetual Order Book
 
 This example code shows how to:
-* keep track with the order book
-* show your margin balance
-* keep track with your active orders
-* place an order every 10 seconds at the index price
-* cancel all orders and quit after 5 orders
+* Keep track with the order book
+* Show your margin balance
+* Keep track with your active orders
+* Place an order every 10 seconds at the index price
+* Cancel all orders and quit after 5 orders
 
 The default settings interacts with the Ropsten testnet. Try the Ropsten before moves to the Mainnet.
 
@@ -28,4 +28,12 @@ pip install -r requirements.txt
 8. You'll see the order book
 9. The demo will place an order every 10 seconds at the index price
 10. The demo will cancel all orders and quit after 5 orders
+
+## Overview
+
+Check [Orderbook API](https://mcdex.io/doc/api/) for details. The typical usage of Order Book API is:
+* Connect to the [websocket](https://mcdex.io/doc/api/#api-endpoints). Subscribe a [Market channel](https://mcdex.io/doc/api/#market-channel), the channel will provide a snapshot of the order book immediately, then keep pushing changes.
+* Login (by [signing a text message with your private key](TODO)) in the websocket and subscribe the [Trader channel](https://mcdex.io/doc/api/#trader-channel), the channel will push order changes.
+* Fetch account's [balance](https://mcdex.io/doc/api/#available-balances) by reading API. The most important balances are `MarginBalance` and `AvailableMargin`. Check [Margin-Account Model](https://github.com/mcdexio/documents/blob/master/en/margin-account-model.md) for details.
+* In order to place an order, call [Build Order](https://mcdex.io/doc/api/#build-order) and [Place Order](https://mcdex.io/doc/api/#place-order). The status of an order could be: `pending`, `partial_filled`, `full_filled`, `canceled`.
 
