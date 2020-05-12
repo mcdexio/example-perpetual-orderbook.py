@@ -13,8 +13,8 @@ The default settings interacts with the Ropsten testnet. Try the Ropsten before 
 
 1. Create an account in your MetaMask
 2. Switch MetaMask to ropsten. Press "Deposit" button in the MetaMask to get some ETH from facuet
-3. Goto (mcdex ropsten account page)[https://ropsten.mcdex.io/account/wallet]. Press "Deposit" button in mcdex
-4. Goto (mcdex ropsten trade page)[https://ropsten.mcdex.io/trade]. Place a very small order, the website will prompt you to "set broker to the orderbook". You can close the modal window after the "set broker" progress
+3. Goto [mcdex ropsten account page](https://ropsten.mcdex.io/account/wallet). Press "Deposit" button in mcdex
+4. Goto [mcdex ropsten trade page](https://ropsten.mcdex.io/trade). Place a very small order, the website will prompt you to "set broker to the orderbook". You can close the modal window after the "set broker" progress
 5. Checkout the example code
 ```
 git clone https://github.com/mcdexio/example-perpetual-orderbook.py.git
@@ -22,7 +22,7 @@ cd example-perpetual-orderbook.py
 pip install -r requirements.txt
 ```
 6. Editing `settings.py`:
-  * Set the private key (you may need (export the private key from MetaMask)[https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key])
+  * Set the private key (you may need [export the private key from MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key))
   * Confirm that you are going to connect to the ropsten
 7. Run it `python mm.py`
 8. You'll see the order book
