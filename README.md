@@ -27,5 +27,5 @@ pip install -r requirements.txt
 7. Run it `python mm.py`
 8. You'll see the order book
 9. The demo will place an order every 10 seconds at the index price
-10. The demo will Cancel all orders and quit after 5 orders
+10. The demo will cancel all orders and quit after 5 orders
 
