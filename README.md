@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ```
 6. Editing `settings.py`:
   * Set the private key (you may need [export the private key from MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key))
-  * Confirm that you are going to connect to the ropsten
+  * Set `TARGET_NETWORK` to `ROPSTEN`
 7. Run it `python mm.py`
 8. You'll see the order book
 9. The demo will place an order every 10 seconds at the index price
