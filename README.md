@@ -4,7 +4,7 @@ This example code shows how to:
 * Keep track with the order book
 * Show your margin balance
 * Keep track with your active orders
-* Place an order every 10 seconds at the index price
+* Place an order every 10 seconds at the price 200
 * Cancel all orders and quit after 5 orders
 
 The default settings interacts with the Ropsten testnet. Try the Ropsten before moves to the Mainnet.
@@ -24,9 +24,9 @@ pip install -r requirements.txt
 6. Editing `settings.py`:
   * Set the private key (you may need [export the private key from MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key))
   * Set `TARGET_NETWORK` to `ROPSTEN`
-7. Run it `python mm.py`
+7. Run it `python websocket_demo.py(or api_demo.py)`
 8. You'll see the order book
-9. The demo will place an order every 10 seconds at the index price
+9. The demo will place an order every 10 seconds at the price 200
 10. The demo will cancel all orders and quit after 5 orders
 
 ## Overview
