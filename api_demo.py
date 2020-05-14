@@ -71,6 +71,13 @@ def get_active_orders():
     response_data = api_request("get", url=f"{api_url}/orders", params={"status": "pending"}, headers=generate_auth_headers())
     print(f"[get active orders response]{response_data}\n")
 
+def get_market_status():
+    response_data = api_request("get", url=f"{api_url}/markets/{market_id}/status")
+    print(f"[get market status response]{response_data}\n")
+    index_price = response_data["data"]["lastIndex"]
+    index_price = str(float(index_price) // 0.01 * 0.01)
+    return index_price
+
 def build_unsigned_order(amount, price, side, order_type, expires, leverage):
     url = f"{api_url}/orders/build"
     headers = generate_auth_headers()
@@ -106,12 +113,13 @@ def cancel_all_orders():
     print(f"[cancel all orders response]{response_data}\n")
 
 if __name__ == "__main__":
+    index_price = get_market_status()
     for i in range(5):
         get_balances()
         get_active_orders()
         time.sleep(5)
         side = "buy" if random.random() > 0.5 else "sell"
-        place_order("10", "limit", "200", side, 300, "5")
+        place_order("10", "limit", index_price, side, 300, "5")
         time.sleep(5)
     cancel_all_orders()
 
