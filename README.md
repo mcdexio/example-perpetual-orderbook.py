@@ -23,6 +23,7 @@ pip install -r requirements.txt
 ```
 6. Editing `settings.py`:
   * Set the private key (you may need [export the private key from MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key))
+  * Set the public key
   * Set `TARGET_NETWORK` to `ROPSTEN`
 7. Run it `python websocket_demo.py(or api_demo.py)`
 8. You'll see the order book

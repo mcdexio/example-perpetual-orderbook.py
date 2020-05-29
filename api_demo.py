@@ -1,4 +1,4 @@
-from setting import PRIVATE_KEY, TARGET_NETWORK
+from setting import PRIVATE_KEY, TARGET_NETWORK, PUBLIC_KEY
 from wallet import Wallet
 
 import requests
@@ -16,7 +16,7 @@ else:
     print("Error: unknown network.\n")
 
 market_id = "ETHPERP"
-wallet = Wallet(PRIVATE_KEY)
+wallet = Wallet(PRIVATE_KEY, PUBLIC_KEY)
 TIMEOUT = 5
 
 def generate_auth_headers():

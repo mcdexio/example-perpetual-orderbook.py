@@ -1,4 +1,4 @@
-from setting import PRIVATE_KEY, TARGET_NETWORK
+from setting import PRIVATE_KEY, TARGET_NETWORK, PUBLIC_KEY
 from wallet import Wallet
 
 import websockets
@@ -15,7 +15,7 @@ else:
     print("Error: unknown network.\n")
 
 market_id = "ETHPERP"
-wallet = Wallet(PRIVATE_KEY)
+wallet = Wallet(PRIVATE_KEY, PUBLIC_KEY)
 
 async def listen_for_order_book():
     async with websockets.connect(websocket_url) as ws:
