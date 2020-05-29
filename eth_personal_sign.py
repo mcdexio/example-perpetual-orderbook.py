@@ -15,22 +15,8 @@ def keccak256(prehash: bytes) -> bytes:
 
 class EthPersonalSign(object):
     def __init__(self, private_key):
-        self.privateKeyToAccount(private_key)
-
-    def privateKeyToAccount(self, private_key):
         private_key_bytes = decode_hex(private_key)
         self._raw_key = private_key_bytes
-
-    # def get_public_key(self):
-    #     pass
-
-    # def get_address(self):
-    #     key.public_key.to_checksum_address()
-    #     pass
-
-    # def private_key_to_account(self):
-    #     key = self._parsePrivateKey(private_key)
-    #     return LocalAccount(key, self)
 
     def signHash(self, msg_hash_bytes: bytes):
         if len(msg_hash_bytes) != 32:
