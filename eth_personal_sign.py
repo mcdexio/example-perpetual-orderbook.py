@@ -15,13 +15,13 @@ def keccak256(prehash: bytes) -> bytes:
 
 class EthPersonalSign(object):
     def __init__(self, private_key):
-        self.privateKeyToAccount(private_key)
+        self.private_key_to_account(private_key)
 
-    def privateKeyToAccount(self, private_key):
+    def private_key_to_account(self, private_key):
         private_key_bytes = EthPersonalSign.decode_hex(private_key)
         self._raw_key = private_key_bytes
 
-    def signHash(self, msg_hash_bytes: bytes):
+    def sign_message_hash(self, msg_hash_bytes: bytes):
         if len(msg_hash_bytes) != 32:
             raise ValueError("The message hash must be exactly 32-bytes")
         key = self._raw_key
@@ -106,6 +106,5 @@ class EthPersonalSign(object):
 
     def sign_hash(self, text=None, hexstr=None):
         msg_hash = EthPersonalSign.defunct_hash_message(hexstr=hexstr, text=text)
-        print('     hash', msg_hash)
-        signature = self.signHash(msg_hash)
+        signature = self.sign_message_hash(msg_hash)
         return EthPersonalSign.hex_bytes(signature)
