@@ -19,10 +19,13 @@ market_id = "ETHPERP"
 wallet = Wallet(PRIVATE_KEY, PUBLIC_KEY)
 TIMEOUT = 5
 
-def generate_auth_headers():
+def generate_auth_headers(principal=None):
     timestamp = int(time.time() * 1000)
     signature = wallet.sign_hash(text=f"MAI-AUTHENTICATION@{timestamp}")
-    return {"Mai-Authentication": f"{wallet.address}#MAI-AUTHENTICATION@{timestamp}#{signature}"}
+    result = {"Mai-Authentication": f"{wallet.address}#MAI-AUTHENTICATION@{timestamp}#{signature}"}
+    if principal is not None:
+        result["Mai-Principal"] = principal
+    return result
 
 def api_request(http_method, url, params=None, headers=None):
     if http_method.lower() == "get":
