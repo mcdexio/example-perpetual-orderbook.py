@@ -81,7 +81,7 @@ def get_market_status():
     index_price = str(float(index_price) // 0.01 * 0.01)
     return index_price
 
-def build_unsigned_order(amount, price, side, order_type, expires, leverage):
+def build_unsigned_order(amount, price, side, order_type, expires, targetLeverage, isPostOnly=False):
     url = f"{api_url}/orders/build"
     headers = generate_auth_headers()
     params = {
@@ -91,7 +91,8 @@ def build_unsigned_order(amount, price, side, order_type, expires, leverage):
         "marketId": market_id,
         "orderType": order_type,
         "expires": expires,
-        "targetLeverage": leverage
+        "targetLeverage": targetLeverage,
+        "isPostOnly": isPostOnly
     }
     response_data = api_request('post', url=url, params=params, headers=headers)
     print(f"[build order response]{response_data}\n")
